@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Homemade+Apple&family=Raleway:wght@500&family=Sacramento&family=Shadows+Into+Light&display=swap');
+// Variables
+@light:             #f0d3f7;
+@pink:#B98EA7;
+@primary:#A57982;
+@secondary:#302F4D;
+@dark:#120D31;
+
+
+body {
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  background-color: @pink;
+}
+
+a {
+  color: @dark;
+}
+
+/* header */
+
+.header {
+  background-color: @light;
+  box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+}
+
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  background-color: @light;
+}
+
+.header li a {
+  display: block;
+  padding: 20px 20px;
+  border-right: 1px solid @pink;
+  text-decoration: none;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+  background-color: @pink;
+}
+
+.header .logo {
+  display: block;
+  float: left;
+  font-size: 2em;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.logo {
+  font-family: 'Shadows Into Light', cursive;
+}
+
+/* menu */
+
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+}
+
+.menu {
+  line-height: 2em;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+}
+
+.header .menu-icon .navicon {
+  background: @dark;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: @dark;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+
+@media (min-width: 600px) {
+  .header li {
+    float: left;
+  }
+  .header li a {
+    padding: 20px 30px;
+  }
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .header .menu-icon {
+    display: none;
+  }
+}
+
+// main
+main {
+  position: absolute;
+  top: 3em;
+  padding: 1em;
+  .home-header{
+    font-family: 'Homemade Apple', cursive;
+  }
+  .about-header {
+    font-family: 'Abril Fatface', cursive;
+  }
+  .contact-header {
+    font-family: 'Sacramento', cursive;
+  }
+}
+
+//Footer
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: @light;
+  color: @secondary;
+  text-align: center;
+  ul {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    @media (min-width: 600px) {
+      flex-flow: row nowrap;
+    }
+  }
+  li {
+    list-style-type: none;
+    font-size: 2em;
+    padding: 1em;
+  }
+  a{
+    :hover {
+      color: lighten(@dark, 50%);
+    }
+  }
+}
+
